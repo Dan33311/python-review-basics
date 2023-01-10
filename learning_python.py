@@ -143,6 +143,97 @@ for i in range(5):
 print(squares)     # [0, 1, 4, 9, 16]
 
 
+#  ---  Args & **Kwargs  --------------------------------------------------------------------
+print('---  Args & **Kwargs  --------------------------------------------------------------')
+#unpacking operator (*)
+def my_sum(*args):
+  result = 0
+  # Iterating over the Python args tuple
+  for x in args:
+    result += x
+  return result
+print('my_sum:', my_sum(5, 5, 10))
+
+def my_sum_2(**kwargs):
+  result = 0
+  for key, value in kwargs.items():
+    print(key, "=", value)
+    result += value
+  return result
+print('my_sum_2:', my_sum_2(a=10, b=10, c=20))
+
+def concatenate(**kwargs):
+  result = ""
+  for arg in kwargs.values():
+    result += arg
+    # result += arg + " "
+  return result
+print('concatenate:', concatenate(a="Real", b="Python", c="is", d="great!"))
+
+my_list = [1, 2, 3]
+print(my_list)     # [1, 2, 3]
+print(*my_list)    # 1 2 3
+
+
+#  ---  Scope & Globals  --------------------------------------------------------------------
+print('---  Scope & Globals  --------------------------------------------------------------')
+x = 'Shingo'
+
+def func(name):
+  x = name
+
+print(x)      # Shingo
+func('Kim')
+print(x)      # Shingo
+
+
+#  ---  Exceptions  --------------------------------------------------------------------
+print('---  Exceptions  --------------------------------------------------------------')
+# Errors handler
+# https://ellibrodepython.com/excepciones-try-except-finally
+  # raise
+  # Else, try, except, finally
+
+#  ---  Handling Exceptions  --------------------------------------------------------------------
+print('---  Handling Exceptions  --------------------------------------------------------------')
+try:
+  x = 7 / 0
+except Exception as e:     # e is the variable when we will be store the exception=>error
+  print(e)     # division by zero
+
+
+#  ---  Lambda  --------------------------------------------------------------------
+print('---  Lambda  --------------------------------------------------------------')
+# Anonimous function, one line, any args
+x = lambda x: x + 10
+
+print(x(10))      # 20
+
+
+#  ---  map & filter --------------------------------------------------------------------
+print('---  map & filter  --------------------------------------------------------------')
+x = [1, 2, 3, 4, 5]
+mp = map(lambda i : i * 10, x) # map() must have at least two arguments.
+print(list(mp))      # [10, 20, 30, 40, 50]
+
+fil = filter(lambda i : i % 2 == 0, x) # filter need a boolean
+print(list(fil))     # [2, 4]
+
+def myfunc(a, b):
+  return a + b
+x = map(myfunc, ('apple', 'banana', 'cherry'), ('orange', 'lemon', 'pineapple'))
+print(x)      # <map object at 0x000001F871BFFAF0>
+#convert the map into a list, for readability:
+print(list(x))      # ['appleorange', 'bananalemon', 'cherrypineapple']
+
+
+#  ---  F Strings --------------------------------------------------------------------
+print('---  f strings  --------------------------------------------------------------')
+# are new in python 3.6.
+
+
+
+
 
 
 
